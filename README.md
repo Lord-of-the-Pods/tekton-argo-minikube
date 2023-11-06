@@ -51,7 +51,7 @@ kubectl get pods --namespace tekton-pipelines --watch
 
 ### 3. Access Tekton
 ```
-kubectl -n argocd port-forward svc/argocd-server 9001:443
+kubectl --namespace tekton-pipelines port-forward svc/tekton-dashboard 9097:9097
 ```
 
 ## Setup ArgoCD on Minikube 
@@ -65,5 +65,5 @@ kubectl -n argocd apply -f install.yaml
 
 ### 2. Access Argo
 ```
-kubectl --namespace tekton-pipelines port-forward svc/tekton-dashboard 9097:9097
+kubectl -n argocd port-forward svc/argocd-server 9001:443
 ```
